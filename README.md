@@ -2,7 +2,7 @@
 
 ### Objective
 
-학습 데이터가 없는 환경에서 사용자의 입력 데이터와 대상 데이터와의 연관도를 수치화 해주는 라이브러리이다.  
+ + 학습 데이터가 없는 환경에서 사용자의 입력 데이터와 대상 데이터와의 연관도를 수치화 해주는 라이브러리이다.  
 Web parsing을 기반으로 단어들의 연관도를 분석해준다.  
 
 ### How to?
@@ -55,7 +55,7 @@ Web parsing을 기반으로 단어들의 연관도를 분석해준다.
 
 ### Language
 
-Java (JDK 1.5 이상)
+ + Java (JDK 1.5 이상)
 
 ### Participants
 
@@ -64,3 +64,6 @@ Java (JDK 1.5 이상)
 * [Myeongjun Kim](https://github.com/kimmyeongjun): TF IDF algorithms  
 * [Byeongcheol Park](https://github.com/gkr2410): Naive Bayesian algorithms, Test code  
 
+### License
+
+ + GNU Public License(GPL)
