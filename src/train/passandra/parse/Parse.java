@@ -1,4 +1,4 @@
-package train.passandra.io;
+package train.passandra.parse;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

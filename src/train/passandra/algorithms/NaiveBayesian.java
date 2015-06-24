@@ -1,4 +1,4 @@
-package train.passandra.model;
+package train.passandra.algorithms;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,8 +6,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import train.passandra.io.Parse;
-import train.passandra.io.ParsingData;
+import train.passandra.parse.Parse;
+import train.passandra.parse.ParsingData;
 
 public class NaiveBayesian {
 	private NaiveBayesianModel model;
@@ -55,8 +55,7 @@ public class NaiveBayesian {
 		int searchPoint = compareModel(keyword);
 		int modelPoint = model.getTotalWordSize();
 
-		System.out.println("searchPoint : " + searchPoint + ", modelPoint : "
-				+ modelPoint);
+		System.out.println("searchPoint : " + searchPoint + ", modelPoint : " + modelPoint);
 		return searchPoint * 100 / modelPoint;
 	}
 
@@ -68,10 +67,10 @@ public class NaiveBayesian {
 		ArrayList<ParsingData> data = new ArrayList<ParsingData>();
 
 		for (int i = 0; i < prases.size(); i++)
-			data.add(new ParsingData(prases.get(i),keyword));
+			data.add(new ParsingData(prases.get(i), keyword));
 
 		searchMap = creatModel(data).getWordMap();
-		
+
 		int searchMapPoint = 0;
 
 		Iterator<String> it = searchMap.keySet().iterator();
@@ -106,7 +105,6 @@ public class NaiveBayesian {
 
 				return ((Comparable) v1).compareTo(v2);
 			}
-
 		});
 		Collections.reverse(list);
 		return list;

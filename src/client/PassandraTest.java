@@ -2,12 +2,12 @@ package client;
 
 import java.util.ArrayList;
 
-import train.passandra.io.Parse;
-import train.passandra.io.ParseByDictDotCom;
-import train.passandra.io.ParseByWiki;
-import train.passandra.io.ParsingData;
-import train.passandra.io.TFIDF;
-import train.passandra.model.NaiveBayesian;
+import train.passandra.algorithms.NaiveBayesian;
+import train.passandra.algorithms.TFIDF;
+import train.passandra.parse.Parse;
+import train.passandra.parse.ParseByDictDotCom;
+import train.passandra.parse.ParseByWiki;
+import train.passandra.parse.ParsingData;
 
 public class PassandraTest {
 	public static void main(String[] args) {

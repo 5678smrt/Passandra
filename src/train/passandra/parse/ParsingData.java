@@ -1,4 +1,4 @@
-﻿package train.passandra.io;
+package train.passandra.parse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,8 +15,7 @@ public class ParsingData {
 	}
 
 	public void processing(Parse parse, String keyword) {
-		WordSelect ws = new WordSelect(parse.getContent(keyword),
-				"StopWordList.data");
+		WordSelect ws = new WordSelect(parse.getContent(keyword), "StopWordList.data");
 
 		ArrayList<String> keywordList = ws.getSelectedWord();
 
@@ -29,7 +28,6 @@ public class ParsingData {
 			} catch (Exception e) {
 				keywordMap.put(word, 1);
 			}
-			// System.out.println(word);
 		}
 	}
 
@@ -40,7 +38,6 @@ public class ParsingData {
 
 		while (it.hasNext()) {
 			String key = (String) it.next();
-
 			sum += keywordMap.get(key);
 		}
 
@@ -50,17 +47,14 @@ public class ParsingData {
 	public Boolean isImplication(String keyword) {
 		return keywordMap.containsKey(keyword);
 	}
-	
+
 	public int getImplicationCnt(String keyword) {
-		try{
+		try {
 			return keywordMap.get(keyword);
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			return 0;
 		}
-		
 	}
-
 
 	public HashMap<String, Integer> getKeywordMap() {
 		return keywordMap;

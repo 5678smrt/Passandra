@@ -1,8 +1,6 @@
-package train.passandra.io;
+package train.passandra.parse;
 
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
