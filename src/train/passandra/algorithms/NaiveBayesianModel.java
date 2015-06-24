@@ -1,5 +1,5 @@
 package train.passandra.algorithms;
-import java.io.Serializable;
+
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -31,10 +31,10 @@ public class NaiveBayesianModel {
 
 		while (it.hasNext()) {
 			String key = (String) it.next();
-			
+
 			System.out.println(key + ": " + wordMap.get(key));
 		}
-		System.out.println("@totalSzie : "+this.totalWordSize);
+		System.out.println("@totalSzie : " + this.totalWordSize);
 	}
 
 	public HashMap<String, Integer> getWordMap() {

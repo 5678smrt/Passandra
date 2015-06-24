@@ -1,4 +1,4 @@
-﻿package train.passandra.parser;
+package train.passandra.parser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,7 +35,6 @@ public class ParsingData {
 			} catch (Exception e) {
 				keywordMap.put(word, 1);
 			}
-			// System.out.println(word);
 		}
 	}
 
@@ -49,7 +48,6 @@ public class ParsingData {
 
 		while (it.hasNext()) {
 			String key = (String) it.next();
-
 			sum += keywordMap.get(key);
 		}
 
@@ -75,7 +73,6 @@ public class ParsingData {
 		} catch (Exception e) {
 			return 0;
 		}
-
 	}
 
 	public HashMap<String, Integer> getKeywordMap() {

@@ -38,7 +38,6 @@ public class TFIDF {
 		for (int i = 0; i < data.size(); i++) {
 			wordImplicationCnt += data.get(i).getImplicationCnt(keyword);
 		}
-
 		try {
 
 			Double dataImplicationRatio = (double) (dataSize / dataImplicationCnt);

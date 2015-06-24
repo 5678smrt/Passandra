@@ -28,8 +28,8 @@ public class ParserByDictDotCom extends Parser {
 			Elements selectByTag = doc.select("div.def-content");
 
 			String content = selectByTag.html(); // 해당 태그 제거
-
 			content = acceptRegex(content); // 정규식 적용
+
 			return content;
 		} catch (IOException e) {
 			return "";
