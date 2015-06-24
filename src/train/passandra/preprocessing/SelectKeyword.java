@@ -17,7 +17,7 @@ public class SelectKeyword {
         this.inputString = inputString;
         this.stopWordsPath = stopWordsPath;
         readStopWordList();
-        selectOCRString();
+        selectString();
     }
     
     /**
@@ -62,7 +62,7 @@ public class SelectKeyword {
         return true;
     }
     
-    private void selectOCRString() {
+    private void selectString() {
         String[] lines = inputString.split("\n");
         for (String line : lines) {
             String[] splitWhiteSpace = line.split(" ");
@@ -72,24 +72,16 @@ public class SelectKeyword {
                 if (element != null) {
                     words.add(element);
                 }
-                
-                /*
-                 * if (typeFlag) { words.add(element);
-                 * System.out.println(element); }
-                 */
             }
         }
         
         combineWord();
-        //		words = new ArrayList<String>(new HashSet(words)); // 중복 단어 제거
-        
-        // System.out.println(words.toString());
     }
     
     public void setInputString(String inputString) {
         this.inputString = inputString;
         words.clear();
-        selectOCRString();
+        selectString();
     }
     
     public ArrayList<String> getSelectedWord() {
@@ -110,6 +102,11 @@ public class SelectKeyword {
         }
     }
     
+    /**
+     * 특수문자, 밑 숫자제거
+     * @param element
+     * @return
+     */
     private String exceptionWord(String element) {
         String originElement;
         

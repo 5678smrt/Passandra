@@ -13,14 +13,21 @@ public class NaiveBayesian {
 	private NaiveBayesianModel model;
 	private ArrayList<Parser> prases;
 
+	
+	/**
+	 * 비교 기준 keyword의 ParsingData들과 사용된 Parser를 생성자로 사용  
+	 * @param data
+	 * @param prases
+	 */
 	public NaiveBayesian(ArrayList<ParsingData> data, ArrayList<Parser> prases) {
 		model = creatModel(data);
 		this.prases = prases;
 	}
 
 	/**
-	 * @param data
-	 * @return NaiveBayesianModel 데이터의 분석을 위한 키워드의 모델
+	 * 비교 기준이 되는 keyword의 ParsingData를 이용하여 해당 kewyord의 model 생성
+	 * @param data 
+	 * @return NaiveBayesianModel
 	 */
 	private NaiveBayesianModel creatModel(ArrayList<ParsingData> data) {
 		HashMap<String, Integer> map = data.get(0).getKeywordMap();
@@ -47,6 +54,7 @@ public class NaiveBayesian {
 	}
 
 	/**
+	 * model과 비교할 keyword를 매개변수로 받아 연관도 반환
 	 * @param keyword
 	 * @return correlation
 	 */
@@ -60,6 +68,13 @@ public class NaiveBayesian {
 		return searchPoint * 100 / modelPoint;
 	}
 
+	
+	/**
+	 * 비교할 keyword를 Parser를 통해 ParsingData를 생성하여 model 생성 후
+	 * 기준 keyword의 model과 비교분석하여 공통되는 부분의 수치를 반환 
+	 * @param keyword
+	 * @return 비교 후 두 keyword의 공통되는 단어의 갯수
+	 */
 	private int compareModel(String keyword) {
 		HashMap<String, Integer> modelMap = model.getWordMap();
 		HashMap<String, Integer> searchMap;
@@ -85,14 +100,25 @@ public class NaiveBayesian {
 		return searchMapPoint;
 	}
 
-	public ArrayList<String> getRecommendWords(ArrayList<String> content) {
+	/**
+	 * 비교할 단어들을 ArrayList 형태로 입력받아 분석 후 랭킹하여 반환 
+	 * @param keywords
+	 * @return rankingData
+	 */
+	public ArrayList<String> getRecommendWords(ArrayList<String> keywords) {
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
-		for (int i = 0; i < content.size(); i++)
-			map.put(content.get(i), getCorrelation(content.get(i)));
+		for (int i = 0; i < keywords.size(); i++)
+			map.put(keywords.get(i), getCorrelation(keywords.get(i)));
 
 		return sortByValue(map);
 	}
 
+	
+	/**
+	 * HashMap의 value값으로 key를 sorting하여 ArrayList 형태로 반환
+	 * @param map
+	 * @return 정렬된 ArrayList
+	 */
 	public ArrayList<String> sortByValue(final HashMap<String, Integer> map) {
 		ArrayList<String> list = new ArrayList<String>();
 		list.addAll(map.keySet());
