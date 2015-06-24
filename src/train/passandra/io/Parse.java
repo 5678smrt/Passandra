@@ -49,10 +49,9 @@ public abstract class Parse {
 	}
 	
 	/**
-	 * wiki에서 search에 대한 내용을 파싱하여 String형태로 반환한다.
-	 * 
-	 * @param 검색할
-	 *            내용
+	 * web에서 search에 대한 내용을 파싱하여 String형태로 반환한다.
+	 *
+	 * @param 검색할 내용
 	 * @return search의 대한 검색 결과
 	 */
 	public abstract String getContent(String search);
