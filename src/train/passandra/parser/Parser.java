@@ -1,14 +1,14 @@
-package train.passandra.io;
+package train.passandra.parser;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public abstract class Parse {
+public abstract class Parser {
 	protected String uri;
 	
 	private String regexTag, regexBraket, regexEng; // 불필요한 내용 제거하는 정규표현식
 
-	public Parse(String uri) {
+	public Parser(String uri) {
 		this.uri = uri;
 		this.regexTag = "<[^>]*>"; // html tag 제거
 		this.regexBraket = "[\\[\\d\\]]"; // [%d] 제거

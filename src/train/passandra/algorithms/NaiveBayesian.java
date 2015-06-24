@@ -1,4 +1,4 @@
-package train.passandra.model;
+package train.passandra.algorithms;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,14 +6,14 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import train.passandra.io.Parse;
-import train.passandra.io.ParsingData;
+import train.passandra.parser.Parser;
+import train.passandra.parser.ParsingData;
 
 public class NaiveBayesian {
 	private NaiveBayesianModel model;
-	private ArrayList<Parse> prases;
+	private ArrayList<Parser> prases;
 
-	public NaiveBayesian(ArrayList<ParsingData> data, ArrayList<Parse> prases) {
+	public NaiveBayesian(ArrayList<ParsingData> data, ArrayList<Parser> prases) {
 		model = creatModel(data);
 		this.prases = prases;
 	}

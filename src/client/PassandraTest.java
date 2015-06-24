@@ -2,19 +2,19 @@ package client;
 
 import java.util.ArrayList;
 
-import train.passandra.io.Parse;
-import train.passandra.io.ParseByDictDotCom;
-import train.passandra.io.ParseByWiki;
-import train.passandra.io.ParsingData;
-import train.passandra.io.TFIDF;
-import train.passandra.model.NaiveBayesian;
+import train.passandra.algorithms.NaiveBayesian;
+import train.passandra.algorithms.TFIDF;
+import train.passandra.parser.Parser;
+import train.passandra.parser.ParserByDictDotCom;
+import train.passandra.parser.ParserByWiki;
+import train.passandra.parser.ParsingData;
 
 public class PassandraTest {
 	public static void main(String[] args) {
-		Parse wiki = new ParseByWiki();
-		Parse dictDotCom = new ParseByDictDotCom();
+		Parser wiki = new ParserByWiki();
+		Parser dictDotCom = new ParserByDictDotCom();
 
-		ArrayList<Parse> parses = new ArrayList<Parse>();
+		ArrayList<Parser> parses = new ArrayList<Parser>();
 		parses.add(wiki);
 		parses.add(dictDotCom);
 
