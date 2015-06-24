@@ -14,40 +14,36 @@ Web parsing을 기반으로 단어들의 연관도를 분석해준다.
 
 ### Usage
 
-1. Properties for "Your Project" - Add JARs.. - lib/jsoup library 추가  
-2. Parser 클래스를 상속 받아 파싱할 웹사이트에 맞는 객체를 생성한다.  
-```
-    Parser wiki = new ParserByWiki();
-    Parser dictDotCom = new ParserByDictDotCom();
-```
+  1. Properties for "Your Project" - Add JARs.. - lib/jsoup library 추가  
+  2. Parser 클래스를 상속 받아 파싱할 웹사이트에 맞는 객체를 생성한다.  
 
-3. 생성 한 Parser 객체들을 List에 추가한다.  
-```    
-    ArrayList<Parser> parses = new ArrayList<Parser>();
-    parses.add(wiki);
-    parses.add(dictDotCom);
-```
+        Parser wiki = new ParserByWiki();
+        Parser dictDotCom = new ParserByDictDotCom();
 
-4. 사용자의 입력 데이터의 대해 학습 데이터를 생성한다.  
-```    
-    ArrayList<ParsingData> data = new ArrayList<ParsingData>();
-	// man: User input data
-    data.add(new ParsingData(wiki, "man"));
-    data.add(new ParsingData(dictDotCom, "man"));
-```
+  3. 생성 한 Parser 객체들을 List에 추가한다.  
 
-5. Bayesian, TFxIDF 알고리즘으로 입력 데이터와 대상 데이터의 연관도를 수치로 확인할 수 있다.  
-```    
-    NaiveBayesian test = new NaiveBayesian(data, parses);
-    System.out.println("Correlation : " + test.getCorrelation("woman") + "%");
-    System.out.println("Correlation : " + test.getCorrelation("cup") + "%");
-    System.out.println("Correlation : " + test.getCorrelation("rain") + "%");
-```
+        ArrayList<Parser> parses = new ArrayList<Parser>();
+        parses.add(wiki);
+        parses.add(dictDotCom);
 
-    TFIDF tfidf = new TFIDF(data);
-    System.out.println("Correlation : " + tfidf.getCorrelation("woman") + "%");
-    System.out.println("Correlation : " + tfidf.getCorrelation("cup") + "%");
-    System.out.println("Correlation : " + tfidf.getCorrelation("rain") + "%");
+  4. 사용자의 입력 데이터의 대해 학습 데이터를 생성한다.  
+
+        ArrayList<ParsingData> data = new ArrayList<ParsingData>();
+        // man: User input data
+        data.add(new ParsingData(wiki, "man"));
+        data.add(new ParsingData(dictDotCom, "man"));
+
+  5. Bayesian, TFxIDF 알고리즘으로 입력 데이터와 대상 데이터의 연관도를 수치로 확인할 수 있다.  
+
+        NaiveBayesian test = new NaiveBayesian(data, parses);
+        System.out.println("Correlation : " + test.getCorrelation("woman") + "%");
+        System.out.println("Correlation : " + test.getCorrelation("cup") + "%");
+        System.out.println("Correlation : " + test.getCorrelation("rain") + "%");
+    
+        TFIDF tfidf = new TFIDF(data);
+        System.out.println("Correlation : " + tfidf.getCorrelation("woman") + "%");
+        System.out.println("Correlation : " + tfidf.getCorrelation("cup") + "%");
+        System.out.println("Correlation : " + tfidf.getCorrelation("rain") + "%");
 
 ### Language
 
@@ -59,3 +55,4 @@ Java (JDK 1.5 이상)
 * [Sungjin Lee](https://github.com/qchonjae): Parsing result preprocessing  
 * [Myeongjun Kim](https://github.com/kimmyeongjun): TF IDF algorithms  
 * [Byeongcheol Park](https://github.com/gkr2410): Naive Bayesian algorithms, Test code  
+
