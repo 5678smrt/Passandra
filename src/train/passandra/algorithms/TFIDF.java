@@ -2,7 +2,7 @@ package train.passandra.algorithms;
 
 import java.util.ArrayList;
 
-import train.passandra.parse.ParsingData;
+import train.passandra.parser.ParsingData;
 
 public class TFIDF {
 	ArrayList<ParsingData> data;
@@ -29,14 +29,6 @@ public class TFIDF {
 		for (int i = 0; i < data.size(); i++) {
 			wordImplicationCnt += data.get(i).getImplicationCnt(keyword);
 		}
-
-		//		System.out.println(wordImplicationCnt);
-		//		System.out.println(totalWordPoint);
-		//		System.out.println(dataSize);
-		//		System.out.println(dataImplicationCnt);
-		//		System.out.println(Math.log10(dataSize / dataImplicationCnt));
-		//		System.out.println(wordImplicationCnt / totalWordPoint);
-
 		try {
 			Double correlation = (wordImplicationCnt / totalWordPoint) * (Math.log10(dataSize / dataImplicationCnt));
 			return correlation;

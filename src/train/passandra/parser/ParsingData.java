@@ -1,21 +1,21 @@
-package train.passandra.parse;
+package train.passandra.parser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import train.passandra.preprocessing.WordSelect;
+import train.passandra.preprocessing.SelectKeyword;
 
 public class ParsingData {
 	HashMap<String, Integer> keywordMap;
 
-	public ParsingData(Parse parse, String keyword) {
+	public ParsingData(Parser parse, String keyword) {
 		keywordMap = new HashMap<String, Integer>();
 		processing(parse, keyword);
 	}
 
-	public void processing(Parse parse, String keyword) {
-		WordSelect ws = new WordSelect(parse.getContent(keyword), "StopWordList.data");
+	public void processing(Parser parse, String keyword) {
+		SelectKeyword ws = new SelectKeyword(parse.getContent(keyword), "StopWordList.data");
 
 		ArrayList<String> keywordList = ws.getSelectedWord();
 

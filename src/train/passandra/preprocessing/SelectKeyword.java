@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class WordSelect {
+public class SelectKeyword {
     private ArrayList<String> words, exceptKeyword;
     private String inputString, stopWordsPath;
     
-    public WordSelect(String inputString, String stopWordsPath) {
+    public SelectKeyword(String inputString, String stopWordsPath) {
         this.words = new ArrayList<String>();
         this.exceptKeyword = new ArrayList<String>();
         this.inputString = inputString;

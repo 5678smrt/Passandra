@@ -1,20 +1,20 @@
-package train.passandra.parse;
+package train.passandra.parser;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public abstract class Parse {
+public abstract class Parser {
 	protected String uri;
-	
+
 	private String regexTag, regexBraket, regexEng; // 불필요한 내용 제거하는 정규표현식
 
-	public Parse(String uri) {
+	public Parser(String uri) {
 		this.uri = uri;
 		this.regexTag = "<[^>]*>"; // html tag 제거
 		this.regexBraket = "[\\[\\d\\]]"; // [%d] 제거
 		this.regexEng = "[^\\x00-\\x7F]"; // 영어 이외에 문자 제거
 	}
-	
+
 	protected String acceptRegex(String target) {
 		Pattern pattern = Pattern.compile(regexTag);
 		Matcher mat = pattern.matcher("");
@@ -32,7 +32,7 @@ public abstract class Parse {
 		target = mat.replaceAll("");
 		return target;
 	}
-	
+
 	/**
 	 * 검색어 search의 타입 판별
 	 * 
@@ -47,7 +47,7 @@ public abstract class Parse {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * web에서 search에 대한 내용을 파싱하여 String형태로 반환한다.
 	 *
@@ -55,6 +55,5 @@ public abstract class Parse {
 	 * @return search의 대한 검색 결과
 	 */
 	public abstract String getContent(String search);
-	
-	
+
 }

@@ -1,12 +1,10 @@
 package train.passandra.algorithms;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class NaiveBayesianModel implements Serializable {
+public class NaiveBayesianModel {
 
-	private static final long serialVersionUID = 1L;
 	HashMap<String, Integer> wordMap;
 	int totalWordSize;
 
