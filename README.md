@@ -17,33 +17,41 @@ Web parsing을 기반으로 단어들의 연관도를 분석해준다.
   1. Properties for "Your Project" - Add JARs.. - lib/jsoup library 추가  
   2. Parser 클래스를 상속 받아 파싱할 웹사이트에 맞는 객체를 생성한다.  
 
-        Parser wiki = new ParserByWiki();
-        Parser dictDotCom = new ParserByDictDotCom();
+  ```Java
+  Parser wiki = new ParserByWiki();
+  Parser dictDotCom = new ParserByDictDotCom();
+  ```
 
   3. 생성 한 Parser 객체들을 List에 추가한다.  
 
-        ArrayList<Parser> parses = new ArrayList<Parser>();
-        parses.add(wiki);
-        parses.add(dictDotCom);
+  ```Java
+  ArrayList<Parser> parses = new ArrayList<Parser>();
+  parses.add(wiki);
+  parses.add(dictDotCom);
+  ```
 
   4. 사용자의 입력 데이터의 대해 학습 데이터를 생성한다.  
 
-        ArrayList<ParsingData> data = new ArrayList<ParsingData>();
-        // man: User input data
-        data.add(new ParsingData(wiki, "man"));
-        data.add(new ParsingData(dictDotCom, "man"));
+  ```Java
+  ArrayList<ParsingData> data = new ArrayList<ParsingData>();
+  // man: User input data
+  data.add(new ParsingData(wiki, "man"));
+  data.add(new ParsingData(dictDotCom, "man"));
+  ```
 
   5. Bayesian, TFxIDF 알고리즘으로 입력 데이터와 대상 데이터의 연관도를 수치로 확인할 수 있다.  
 
-        NaiveBayesian test = new NaiveBayesian(data, parses);
-        System.out.println("Correlation : " + test.getCorrelation("woman") + "%");
-        System.out.println("Correlation : " + test.getCorrelation("cup") + "%");
-        System.out.println("Correlation : " + test.getCorrelation("rain") + "%");
+  ```Java
+  NaiveBayesian test = new NaiveBayesian(data, parses);
+  System.out.println("Correlation : " + test.getCorrelation("woman") + "%");
+  System.out.println("Correlation : " + test.getCorrelation("cup") + "%");
+  System.out.println("Correlation : " + test.getCorrelation("rain") + "%");
     
-        TFIDF tfidf = new TFIDF(data);
-        System.out.println("Correlation : " + tfidf.getCorrelation("woman") + "%");
-        System.out.println("Correlation : " + tfidf.getCorrelation("cup") + "%");
-        System.out.println("Correlation : " + tfidf.getCorrelation("rain") + "%");
+  TFIDF tfidf = new TFIDF(data);
+  System.out.println("Correlation : " + tfidf.getCorrelation("woman") + "%");
+  System.out.println("Correlation : " + tfidf.getCorrelation("cup") + "%");
+  System.out.println("Correlation : " + tfidf.getCorrelation("rain") + "%");
+  ```
 
 ### Language
 
