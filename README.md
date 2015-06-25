@@ -46,15 +46,21 @@ Usage
   5. Bayesian, TFxIDF 알고리즘으로 입력 데이터와 대상 데이터의 연관도를 수치로 확인할 수 있다.  
 
   ```Java
+  System.out.println("keyword : man\n"); 
+  
   NaiveBayesian test = new NaiveBayesian(data, parses);
-  System.out.println("Correlation : " + test.getCorrelation("woman") + "%");
-  System.out.println("Correlation : " + test.getCorrelation("cup") + "%");
-  System.out.println("Correlation : " + test.getCorrelation("rain") + "%");
-    
+  System.out.println("NaiveBayesian");
+  System.out.println("Correlation (woman): " + test.getCorrelation("woman") + "%");
+  System.out.println("Correlation (cup): " + test.getCorrelation("cup") + "%");
+  System.out.println("Correlation (rain): " + test.getCorrelation("rain") + "%");
+  System.out.println("Correlation (wolf): " + test.getCorrelation("wolf") + "%\n");
+
   TFIDF tfidf = new TFIDF(data);
-  System.out.println("Correlation : " + tfidf.getCorrelation("woman") + "%");
-  System.out.println("Correlation : " + tfidf.getCorrelation("cup") + "%");
-  System.out.println("Correlation : " + tfidf.getCorrelation("rain") + "%");
+  System.out.println("TFIDF");
+  System.out.println("Correlation (woman): " + tfidf.getCorrelation("woman"));
+  System.out.println("Correlation (cup): " + tfidf.getCorrelation("cup"));
+  System.out.println("Correlation (rain): " + tfidf.getCorrelation("rain"));
+  System.out.println("Correlation (wolf): " + tfidf.getCorrelation("wolf"));
   ```
 
   ![Alt text](/../master/img/demo.png?raw=true "Optional Title")
