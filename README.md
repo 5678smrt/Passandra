@@ -17,7 +17,7 @@ How to?
 Usage
 -----
 
-  1. Properties for "Your Project" - Add JARs.. - lib/jsoup library 추가  
+  1. Properties for "Your Project" - Add JARs.. - lib/Jsoup.lib 추가[Jsoup](http://jsoup.org/)  
   2. Parser 클래스를 상속 받아 파싱할 웹사이트에 맞는 객체를 생성한다.  
 
   ```Java
