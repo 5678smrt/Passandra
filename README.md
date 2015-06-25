@@ -57,6 +57,8 @@ Usage
   System.out.println("Correlation : " + tfidf.getCorrelation("rain") + "%");
   ```
 
+  ![Alt text](/../master/img/demo.png?raw=true "Optional Title")
+
 Language
 --------
 
