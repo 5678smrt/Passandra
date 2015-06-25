@@ -32,21 +32,21 @@ public class PassandraTest {
 		// 기준이 되는 ParsingData의 ArrayList와
 		// 기준 모델에 대하여 비교하는 데이터 또한 Parsing 작업을 하기 때문에 사용할 Parse들의 ArrayList를 전달.
 		NaiveBayesian test = new NaiveBayesian(data, parses);
+		
+		System.out.println("keyword : man\n");
+		
+		System.out.println("NaiveBayesian");
+		System.out.println("Correlation (woman): " + test.getCorrelation("woman") + "%");
+		System.out.println("Correlation (cup): " + test.getCorrelation("cup") + "%");
+		System.out.println("Correlation (rain): " + test.getCorrelation("rain") + "%");
+		System.out.println("Correlation (wolf): " + test.getCorrelation("wolf") + "%\n");
 
-		// 나이브 베이지안 알고리즘을 통한 자동분류를 사용하여 연관도 출력 (단위 : %)
-		System.out.println("Correlation : " + test.getCorrelation("man")+"%");
-		System.out.println("Correlation : " + test.getCorrelation("woman")+"%");
-		System.out.println("Correlation : " + test.getCorrelation("cup")+"%");
-		System.out.println("Correlation : " + test.getCorrelation("wolf")+"%");
-		System.out.println("Correlation : " + test.getCorrelation("rain")+"%");
-		
-		// 기준이 되는 ParsingData에서 비교하는 keyword가 의미가 있는지 TFIDF 알고리즘으로 확인
 		TFIDF tfidf = new TFIDF(data);
-		
-		System.out.println("Correlation : " + tfidf.getCorrelation("man"));
-		System.out.println("Correlation : " + tfidf.getCorrelation("cup"));
-		System.out.println("Correlation : " + tfidf.getCorrelation("sex"));
-		System.out.println("Correlation : " + tfidf.getCorrelation("rain"));
+		System.out.println("TFIDF");
+		System.out.println("Correlation (woman): " + tfidf.getCorrelation("woman"));
+		System.out.println("Correlation (cup): " + tfidf.getCorrelation("cup"));
+		System.out.println("Correlation (rain): " + tfidf.getCorrelation("rain"));
+		System.out.println("Correlation (wolf): " + tfidf.getCorrelation("wolf"));
 
 	}
 }
